@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bautizo de Gael Alejandro · Viernes 23 de octubre</title>
+  <meta name="description" content="Te invitamos al bautizo de Gael Alejandro Pirela González, viernes 23 de octubre a las 5:00 p.m. en la Iglesia Padre Vílchez." />
+  <meta name="theme-color" content="#efe3d0" />
+  <meta property="og:title" content="Bautizo de Gael Alejandro" />
+  <meta property="og:description" content="Viernes 23 de octubre · 5:00 p.m. · Iglesia Padre Vílchez" />
+  <meta property="og:image" content="img/gael3.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Great+Vibes&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream: #f7f0e4;
+      --sand: #efe3d0;
+      --beige: #e2d0b4;
+      --taupe: #b89b72;
+      --cocoa: #7a5c3e;
+      --ink: #4a3826;
+      --gold: #c3a064;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Jost', sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 20% 0%, #fbf6ec 0, transparent 50%),
+        radial-gradient(circle at 90% 40%, #ecdcc2 0, transparent 45%),
+        linear-gradient(180deg, var(--cream), var(--sand));
+      background-attachment: fixed;
+      overflow-x: hidden;
+    }
+    body.locked { overflow: hidden; }
+
+    /* ---------- Partículas ---------- */
+    #sparkles { position: fixed; inset: 0; pointer-events: none; z-index: 1; overflow: hidden; }
+    .sparkle {
+      position: absolute; bottom: -20px; border-radius: 50%;
+      background: radial-gradient(circle, #fff7e0 0, var(--gold) 60%, transparent 70%);
+      opacity: 0; animation: floatUp linear infinite;
+    }
+    @keyframes floatUp {
+      0% { transform: translateY(0) translateX(0); opacity: 0; }
+      15% { opacity: .75; }
+      100% { transform: translateY(-110vh) translateX(30px); opacity: 0; }
+    }
+
+    /* ---------- Portada / sobre ---------- */
+    #cover {
+      position: fixed; inset: 0; z-index: 100;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; padding: 24px;
+      background:
+        radial-gradient(circle at 50% 30%, #fbf4e6 0, #ecdcc0 70%, #dcc7a3 100%);
+      transition: opacity 1.2s ease, transform 1.4s ease, visibility 1.4s;
+    }
+    #cover.open { opacity: 0; transform: scale(1.08); visibility: hidden; }
+    #cover .mini { font-family: 'Jost'; letter-spacing: .45em; font-size: .72rem; text-transform: uppercase; color: var(--cocoa); }
+    #cover h1 { font-family: 'Great Vibes', cursive; font-weight: 400; font-size: clamp(3.6rem, 16vw, 6rem); color: var(--cocoa); line-height: 1; margin: 14px 0 6px; }
+    #cover .sub { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.25rem; color: var(--ink); opacity: .85; }
+    .seal {
+      margin-top: 38px; width: 112px; height: 112px; border-radius: 50%; border: none; cursor: pointer;
+      background: radial-gradient(circle at 35% 30%, #e6c98c, #b8935a 70%, #96743f);
+      color: #fff8ea; font-family: 'Great Vibes', cursive; font-size: 2.6rem;
+      box-shadow: 0 10px 28px rgba(122, 92, 62, .45), inset 0 -6px 12px rgba(0,0,0,.18), inset 0 6px 10px rgba(255,255,255,.35);
+      animation: pulse 2.2s ease-in-out infinite;
+      transition: transform .3s;
+    }
+    .seal:hover { transform: scale(1.08) rotate(-4deg); }
+    @keyframes pulse {
+      0%,100% { box-shadow: 0 10px 28px rgba(122,92,62,.45), 0 0 0 0 rgba(195,160,100,.5), inset 0 -6px 12px rgba(0,0,0,.18), inset 0 6px 10px rgba(255,255,255,.35); }
+      50% { box-shadow: 0 10px 28px rgba(122,92,62,.45), 0 0 0 22px rgba(195,160,100,0), inset 0 -6px 12px rgba(0,0,0,.18), inset 0 6px 10px rgba(255,255,255,.35); }
+    }
+    #cover .hint { margin-top: 22px; font-size: .78rem; letter-spacing: .2em; text-transform: uppercase; color: var(--cocoa); opacity: .8; }
+    .cover-photo {
+      width: 150px; height: 190px; object-fit: cover; object-position: 50% 30%;
+      border-radius: 75px 75px 14px 14px; border: 5px solid #fbf6ec;
+      box-shadow: 0 14px 34px rgba(90,64,38,.3); margin-bottom: 26px;
+    }
+
+    /* ---------- Layout ---------- */
+    main { position: relative; z-index: 2; max-width: 720px; margin: 0 auto; padding: 0 20px 90px; }
+    section { text-align: center; padding: 70px 0 20px; }
+
+    .reveal { opacity: 0; transform: translateY(34px); transition: opacity 1s ease, transform 1s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+
+    .eyebrow { letter-spacing: .5em; text-transform: uppercase; font-size: .74rem; color: var(--taupe); font-weight: 500; }
+    .script { font-family: 'Great Vibes', cursive; font-weight: 400; color: var(--cocoa); }
+    .serif { font-family: 'Cormorant Garamond', serif; }
+
+    /* Hero */
+    .hero { padding-top: 60px; }
+    .hero .frame {
+      width: min(78vw, 330px); aspect-ratio: 3/4; margin: 28px auto 30px; position: relative;
+      border-radius: 999px 999px 24px 24px; padding: 9px;
+      background: linear-gradient(145deg, #e9d3a5, #b8935a 50%, #e9d3a5);
+      box-shadow: 0 22px 50px rgba(90,64,38,.32);
+    }
+    .hero .frame img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; border-radius: 999px 999px 18px 18px; display: block; }
+    .hero h2 { font-size: clamp(3.4rem, 15vw, 5.4rem); line-height: 1; }
+    .hero .full { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; letter-spacing: .14em; text-transform: uppercase; margin-top: 8px; color: var(--ink); }
+
+    .divider { display: flex; align-items: center; justify-content: center; gap: 14px; margin: 34px auto; color: var(--gold); }
+    .divider::before, .divider::after { content: ""; height: 1px; width: 80px; background: linear-gradient(90deg, transparent, var(--gold)); }
+    .divider::after { transform: scaleX(-1); }
+
+    .quote { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.45rem; line-height: 1.55; max-width: 520px; margin: 0 auto; color: var(--ink); }
+    .quote small { display: block; font-style: normal; font-family: 'Jost'; letter-spacing: .3em; font-size: .7rem; text-transform: uppercase; margin-top: 12px; color: var(--taupe); }
+
+    /* Detalles */
+    .card {
+      background: rgba(255, 250, 240, .72); backdrop-filter: blur(8px);
+      border: 1px solid rgba(195,160,100,.5); border-radius: 26px; padding: 36px 24px;
+      box-shadow: 0 16px 40px rgba(122,92,62,.14); margin-top: 26px; position: relative;
+    }
+    .card::before { content: ""; position: absolute; inset: 8px; border: 1px dashed rgba(195,160,100,.5); border-radius: 19px; pointer-events: none; }
+    .date-row { display: flex; align-items: center; justify-content: center; gap: 22px; margin: 18px 0 6px; }
+    .date-row .side { font-family: 'Cormorant Garamond', serif; text-transform: uppercase; letter-spacing: .25em; font-size: 1.05rem; padding: 8px 0; border-top: 1px solid var(--gold); border-bottom: 1px solid var(--gold); }
+    .date-row .num { font-family: 'Cormorant Garamond', serif; font-size: 5.2rem; font-weight: 500; line-height: 1; color: var(--cocoa); }
+    .month { font-family: 'Cormorant Garamond', serif; letter-spacing: .4em; text-transform: uppercase; font-size: 1.2rem; }
+    .time { margin-top: 18px; font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; }
+    .place { margin-top: 26px; }
+    .place h3 { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 1.7rem; color: var(--cocoa); }
+    .place p { margin-top: 6px; font-weight: 300; line-height: 1.6; }
+
+    .btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 28px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px; padding: 14px 26px; border-radius: 999px;
+      text-decoration: none; font-family: 'Jost'; font-weight: 500; font-size: .85rem; letter-spacing: .14em; text-transform: uppercase;
+      cursor: pointer; border: 1px solid var(--cocoa); transition: transform .25s, box-shadow .25s, background .25s;
+    }
+    .btn.primary { background: linear-gradient(135deg, #c9a468, #a98550); color: #fffaf0; border-color: transparent; box-shadow: 0 8px 20px rgba(169,133,80,.4); }
+    .btn.ghost { background: transparent; color: var(--cocoa); }
+    .btn:hover { transform: translateY(-3px); box-shadow: 0 12px 24px rgba(122,92,62,.28); }
+    .btn.ghost:hover { background: rgba(195,160,100,.18); }
+
+    /* Cuenta regresiva */
+    .count { display: flex; justify-content: center; gap: 12px; margin-top: 26px; }
+    .count div { min-width: 70px; padding: 14px 6px; border-radius: 18px; background: rgba(255,250,240,.8); border: 1px solid rgba(195,160,100,.45); }
+    .count b { display: block; font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 600; color: var(--cocoa); line-height: 1; }
+    .count span { font-size: .62rem; letter-spacing: .22em; text-transform: uppercase; color: var(--taupe); }
+
+    .dress { margin-top: 30px; padding-top: 24px; border-top: 1px solid rgba(195,160,100,.45); }
+    .swatches { display: flex; justify-content: center; gap: 10px; margin-top: 14px; }
+    .swatches i { width: 28px; height: 28px; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 3px 8px rgba(90,64,38,.25); }
+
+    /* Confirmación */
+    .rsvp { margin-top: 26px; }
+    .rsvp .serif { font-size: 1.45rem; line-height: 1.5; }
+    .btn.wa { background: linear-gradient(135deg, #7fae8a, #5c8f6a); color: #fffaf0; border-color: transparent; box-shadow: 0 8px 20px rgba(92,143,106,.4); padding: 17px 34px; font-size: .92rem; }
+    .rsvp small { display: block; margin-top: 14px; font-size: .78rem; letter-spacing: .12em; color: var(--taupe); }
+
+    /* Galería */
+    .gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 26px; }
+    .gallery figure { border-radius: 22px; overflow: hidden; box-shadow: 0 14px 30px rgba(90,64,38,.25); border: 5px solid #fbf6ec; background: #fbf6ec; }
+    .gallery figure:first-child { grid-column: span 2; }
+    .gallery img { width: 100%; display: block; object-fit: cover; transition: transform 1.2s ease; }
+    .gallery figure:first-child img { aspect-ratio: 4/3; object-position: 50% 28%; }
+    .gallery figure:not(:first-child) img { aspect-ratio: 3/4; object-position: 50% 30%; }
+    .gallery figure:hover img { transform: scale(1.06); }
+
+    footer { text-align: center; padding: 50px 0 10px; }
+    footer .script { font-size: 2.6rem; }
+    footer p { margin-top: 10px; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.15rem; }
+
+    /* Botón de música */
+    #music {
+      position: fixed; right: 16px; bottom: 16px; z-index: 50; width: 52px; height: 52px; border-radius: 50%;
+      border: 1px solid rgba(195,160,100,.7); background: rgba(255,250,240,.9); color: var(--cocoa);
+      font-size: 1.3rem; cursor: pointer; box-shadow: 0 8px 20px rgba(90,64,38,.25);
+      display: none; align-items: center; justify-content: center; transition: transform .25s;
+    }
+    #music.show { display: flex; }
+    #music:hover { transform: scale(1.1); }
+    #music.playing { animation: spinGlow 3s ease-in-out infinite; }
+    @keyframes spinGlow { 50% { box-shadow: 0 0 0 10px rgba(195,160,100,.18), 0 8px 20px rgba(90,64,38,.25); } }
+
+    @media (prefers-reduced-motion: reduce) {
+      .sparkle, .seal, #music.playing { animation: none; }
+      .reveal { transition: none; opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body class="locked">
+
+  <div id="sparkles" aria-hidden="true"></div>
+
+  <!-- Portada -->
+  <div id="cover" role="dialog" aria-label="Invitación de bautizo">
+    <img class="cover-photo" src="img/gael3.jpg" alt="Gael Alejandro sonriendo" />
+    <p class="mini">Estás invitado</p>
+    <h1>Gael Alejandro</h1>
+    <p class="sub">te espera en su bautizo</p>
+    <button class="seal" id="openBtn" aria-label="Abrir invitación">G</button>
+    <p class="hint">Toca para abrir ♪</p>
+  </div>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero reveal">
+      <p class="eyebrow">Con la bendición de Dios</p>
+      <div class="frame"><img src="img/gael1.jpg" alt="Gael Alejandro recién nacido, envuelto en su mantita" /></div>
+      <h2 class="script">Gael Alejandro</h2>
+      <p class="full">Pirela González</p>
+      <div class="divider">✦</div>
+      <p class="quote">
+        “Dejad que los niños vengan a mí, y no se lo impidáis,<br />porque de los tales es el reino de los cielos.”
+        <small>Mateo 19:14</small>
+      </p>
+    </section>
+
+    <!-- Invitación -->
+    <section class="reveal">
+      <p class="eyebrow">Su bautizo</p>
+      <p class="serif" style="font-size:1.5rem; margin-top:14px; line-height:1.5;">
+        Con inmensa alegría queremos compartir contigo este día tan especial en la vida de nuestro pequeño.
+      </p>
+
+      <div class="card">
+        <p class="month">Octubre</p>
+        <div class="date-row">
+          <span class="side">Viernes</span>
+          <span class="num">23</span>
+          <span class="side">2026</span>
+        </div>
+        <p class="time">5:00 de la tarde</p>
+
+        <div class="place">
+          <h3>Iglesia Padre Vílchez</h3>
+          <p>Av. Principal de San Francisco<br />Estado Zulia</p>
+        </div>
+
+        <div class="btns">
+          <a class="btn primary" id="mapBtn" href="https://maps.app.goo.gl/eCBKCeQSzvPYTuc17?g_st=aw" target="_blank" rel="noopener">📍 Cómo llegar</a>
+          <a class="btn wa" id="rsvpTop" href="#" target="_blank" rel="noopener">💬 Confirmar</a>
+        </div>
+
+        <div class="dress">
+          <p class="eyebrow" style="letter-spacing:.4em">Código de vestimenta</p>
+          <p class="serif" style="font-size:1.6rem; margin-top:8px; color:var(--cocoa)">Colores claros</p>
+          <p class="swatches" aria-hidden="true"><i style="background:#fbf6ec"></i><i style="background:#efe3d0"></i><i style="background:#e2d0b4"></i><i style="background:#f3e3df"></i><i style="background:#dfe8e4"></i></p>
+        </div>
+      </div>
+
+      <div class="count" id="count" aria-live="polite">
+        <div><b id="d">0</b><span>Días</span></div>
+        <div><b id="h">0</b><span>Horas</span></div>
+        <div><b id="m">0</b><span>Min</span></div>
+        <div><b id="s">0</b><span>Seg</span></div>
+      </div>
+    </section>
+
+    <!-- Confirmar asistencia -->
+    <section class="reveal">
+      <p class="eyebrow">Confirma tu asistencia</p>
+      <div class="rsvp">
+        <p class="serif">Nos haría muy felices contar contigo.<br />Cuéntanos si nos acompañarás.</p>
+        <div class="btns">
+          <a class="btn wa" id="rsvpYes" href="#" target="_blank" rel="noopener">💬 Sí, confirmo mi asistencia</a>
+          <a class="btn ghost" id="rsvpNo" href="#" target="_blank" rel="noopener">No podré asistir</a>
+        </div>
+        <small>Se abrirá WhatsApp · +58 412-8423356</small>
+      </div>
+    </section>
+
+    <!-- Galería -->
+    <section class="reveal">
+      <p class="eyebrow">Nuestro angelito</p>
+      <h2 class="script" style="font-size:3.2rem; margin-top:8px;">Gael</h2>
+      <div class="gallery">
+        <figure><img src="img/gael3.jpg" alt="Gael con su conjunto beige" loading="lazy" /></figure>
+        <figure><img src="img/gael2.jpg" alt="Gael sonriendo" loading="lazy" /></figure>
+        <figure><img src="img/gael1.jpg" alt="Gael durmiendo" loading="lazy" /></figure>
+      </div>
+    </section>
+
+    <footer class="reveal">
+      <div class="divider">✦</div>
+      <p class="script">Te esperamos</p>
+      <p>Tu presencia será nuestro mejor regalo.</p>
+      <p style="margin-top:22px; font-family:'Jost'; font-style:normal; letter-spacing:.3em; font-size:.72rem; text-transform:uppercase; color:var(--taupe);">Familia Pirela González</p>
+    </footer>
+  </main>
+
+  <button id="music" aria-label="Activar o pausar música" title="Música">♪</button>
+
+  <script>
+    /* ---------- Partículas ---------- */
+    const sp = document.getElementById('sparkles');
+    for (let i = 0; i < 22; i++) {
+      const el = document.createElement('i');
+      el.className = 'sparkle';
+      const size = 4 + Math.random() * 8;
+      el.style.cssText = `left:${Math.random()*100}%;width:${size}px;height:${size}px;animation-duration:${9+Math.random()*12}s;animation-delay:${-Math.random()*20}s`;
+      sp.appendChild(el);
+    }
+
+    /* ---------- Revelado al hacer scroll ---------- */
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    /* ---------- Música: nana de caja musical (Brahms) sintetizada ---------- */
+    let ctx, master, timer, playing = false, nextTime = 0, step = 0;
+    const N = { D4:293.66, E4:329.63, F4:349.23, G4:392, A4:440, B4:493.88, C5:523.25, D5:587.33, E5:659.25 };
+    // [nota, duración en tiempos]
+    const melody = [
+      ['E4',1],['E4',1],['G4',2],  ['E4',1],['E4',1],['G4',2],
+      ['E4',1],['G4',1],['C5',1],['B4',1],['A4',1],['A4',1],['G4',3],
+      ['D4',1],['E4',1],['F4',2],  ['D4',1],['D4',1],['E4',1],['F4',1],
+      ['D4',1],['F4',1],['B4',1],['A4',1],['G4',1],['B4',1],['C5',3],
+      ['E4',1],['E4',1],['G4',2],  ['E4',1],['E4',1],['G4',2],
+      ['E4',1],['G4',1],['C5',1],['B4',1],['A4',1],['A4',1],['G4',3],
+      ['D5',1],['C5',1],['A4',1],['G4',1],['F4',1],['D4',1],['E4',1],['E4',1],['C5',4]
+    ];
+    const BEAT = 0.62;
+
+    function makeReverb(c) {
+      const len = c.sampleRate * 2.6, buf = c.createBuffer(2, len, c.sampleRate);
+      for (let ch = 0; ch < 2; ch++) {
+        const d = buf.getChannelData(ch);
+        for (let i = 0; i < len; i++) d[i] = (Math.random()*2-1) * Math.pow(1 - i/len, 3);
+      }
+      const conv = c.createConvolver(); conv.buffer = buf; return conv;
+    }
+
+    function note(freq, t, dur) {
+      [[1,0.5,'sine'],[2,0.22,'triangle'],[3.01,0.08,'sine']].forEach(([mult, gain, type]) => {
+        const o = ctx.createOscillator(), g = ctx.createGain();
+        o.type = type; o.frequency.value = freq * mult;
+        g.gain.setValueAtTime(0, t);
+        g.gain.linearRampToValueAtTime(gain, t + 0.008);
+        g.gain.exponentialRampToValueAtTime(0.0008, t + Math.max(dur * BEAT, 0.5) + 1.1);
+        o.connect(g); g.connect(master);
+        o.start(t); o.stop(t + dur * BEAT + 1.4);
+      });
+    }
+
+    function schedule() {
+      while (nextTime < ctx.currentTime + 0.6) {
+        const [n, d] = melody[step];
+        note(N[n], nextTime, d);
+        // acompañamiento suave: nota grave al inicio de cada compás de 3 tiempos
+        if (step % 3 === 0) note(N[n] / 2, nextTime, 2);
+        nextTime += d * BEAT;
+        step = (step + 1) % melody.length;
+        if (step === 0) nextTime += BEAT * 2; // pausa antes de repetir
+      }
+    }
+
+    function startMusic() {
+      if (!ctx) {
+        ctx = new (window.AudioContext || window.webkitAudioContext)();
+        master = ctx.createGain(); master.gain.value = 0.0;
+        const wet = ctx.createGain(); wet.gain.value = 0.55;
+        const rev = makeReverb(ctx);
+        master.connect(ctx.destination); master.connect(rev); rev.connect(wet); wet.connect(ctx.destination);
+      }
+      ctx.resume();
+      master.gain.cancelScheduledValues(ctx.currentTime);
+      master.gain.linearRampToValueAtTime(0.55, ctx.currentTime + 2.5); // fade in
+      nextTime = ctx.currentTime + 0.3;
+      timer = setInterval(schedule, 150);
+      playing = true;
+      musicBtn.classList.add('playing'); musicBtn.textContent = '♪';
+    }
+    function stopMusic() {
+      clearInterval(timer);
+      master.gain.cancelScheduledValues(ctx.currentTime);
+      master.gain.linearRampToValueAtTime(0, ctx.currentTime + 0.6);
+      playing = false;
+      musicBtn.classList.remove('playing'); musicBtn.textContent = '🔇';
+    }
+
+    const musicBtn = document.getElementById('music');
+    musicBtn.addEventListener('click', () => playing ? stopMusic() : startMusic());
+
+    document.getElementById('openBtn').addEventListener('click', () => {
+      document.getElementById('cover').classList.add('open');
+      document.body.classList.remove('locked');
+      musicBtn.classList.add('show');
+      startMusic();
+      window.scrollTo(0, 0);
+    });
+
+    /* ---------- Cuenta regresiva (23 oct 2026, 5:00 p.m. hora de Venezuela, UTC-4) ---------- */
+    const target = new Date('2026-10-23T17:00:00-04:00').getTime();
+    const ids = ['d','h','m','s'].map(i => document.getElementById(i));
+    function tick() {
+      let diff = Math.max(0, target - Date.now());
+      const d = Math.floor(diff / 864e5); diff %= 864e5;
+      const h = Math.floor(diff / 36e5); diff %= 36e5;
+      const m = Math.floor(diff / 6e4);
+      const s = Math.floor((diff % 6e4) / 1e3);
+      [d,h,m,s].forEach((v,i) => ids[i].textContent = String(v).padStart(2,'0'));
+    }
+    tick(); setInterval(tick, 1000);
+
+    /* ---------- Confirmación por WhatsApp ---------- */
+    const WA = '584128423356';
+    const wa = (t) => `https://wa.me/${WA}?text=${encodeURIComponent(t)}`;
+    document.getElementById('rsvpTop').href = wa('¡Hola! 👋 Confirmo mi asistencia al bautizo de Gael Alejandro el viernes 23 de octubre a las 5:00 p.m. 🤍 Seremos ___ persona(s). Mi nombre es: ');
+    document.getElementById('rsvpYes').href = wa('¡Hola! 👋 Confirmo mi asistencia al bautizo de Gael Alejandro el viernes 23 de octubre a las 5:00 p.m. 🤍 Seremos ___ persona(s). Mi nombre es: ');
+    document.getElementById('rsvpNo').href = wa('¡Hola! Muchas gracias por la invitación al bautizo de Gael Alejandro 🤍 Lamentablemente no podré asistir, pero les envío muchas bendiciones. Mi nombre es: ');
+  </script>
+</body>
+</html>

@@ -308,14 +308,14 @@
       display: block;
     }
 
-    .divider-heart {
-      display: flex; align-items: center; justify-content: center; gap: 10px;
-      color: var(--gold); margin: 20px auto; font-size: .85rem;
+    .divider-gold {
+      display: flex; align-items: center; justify-content: center; gap: 12px;
+      color: var(--gold); margin: 22px auto; font-size: .88rem; letter-spacing: .2em;
     }
-    .divider-heart::before, .divider-heart::after {
+    .divider-gold::before, .divider-gold::after {
       content: ""; height: 1px; width: 60px; background: linear-gradient(90deg, transparent, var(--gold));
     }
-    .divider-heart::after { transform: scaleX(-1); }
+    .divider-gold::after { transform: scaleX(-1); }
 
     /* Fila de 3 columnas de detalles: Fecha | Hora | Iglesia */
     .details-row {
@@ -626,18 +626,36 @@
         <h2 class="baby-name">Gael Alejandro</h2>
         <p class="baby-surname">Pirela González</p>
 
-        <!-- Foto de Gael en elegante arco dorado -->
-        <div class="photo-arch">
-          <img src="img/gael3.jpg" alt="Gael Alejandro con su traje de bautizo" />
-        </div>
-
         <!-- Cita bíblica -->
-        <p style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.25rem; line-height:1.45; color:var(--ink); max-width:440px; margin:0 auto;">
+        <p style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.25rem; line-height:1.45; color:var(--ink); max-width:440px; margin:14px auto 0;">
           “Dejad que los niños vengan a mí, y no se lo impidáis, porque de los tales es el reino de los cielos.”
           <span style="display:block; font-style:normal; font-family:'Jost'; font-size:.68rem; letter-spacing:.25em; text-transform:uppercase; color:var(--muted); margin-top:6px;">Mateo 19:14</span>
         </p>
 
-        <div class="divider-heart">✦ ♥ ✦</div>
+        <div class="divider-gold">✦ ✧ ✦</div>
+
+        <!-- Padres y Padrinos -->
+        <div class="family-block">
+          <!-- Padres -->
+          <div class="family-col full-col">
+            <span class="family-role">✦ Padres</span>
+            <p class="family-names">Daily González y Leandro Pirela</p>
+          </div>
+
+          <!-- Madrinas -->
+          <div class="family-col">
+            <span class="family-role">🕊 Madrinas</span>
+            <p class="family-names">María Pirela<br />Valeska Gómez</p>
+          </div>
+
+          <!-- Padrinos -->
+          <div class="family-col">
+            <span class="family-role">🕊 Padrinos</span>
+            <p class="family-names">José Prieto<br />Juan Fereira</p>
+          </div>
+        </div>
+
+        <div class="divider-gold">✦ ✧ ✦</div>
 
         <!-- Fila con iconos de Fecha | Hora | Iglesia -->
         <div class="details-row">
@@ -678,28 +696,7 @@
           <p class="reception-title">Recepción: Trovas</p>
         </div>
 
-        <div class="divider-heart">✦ ♥ ✦</div>
-
-        <!-- Padres y Padrinos -->
-        <div class="family-block">
-          <!-- Padres -->
-          <div class="family-col full-col">
-            <span class="family-role">♡ Padres</span>
-            <p class="family-names">Daily González y Leandro Pirela</p>
-          </div>
-
-          <!-- Madrinas -->
-          <div class="family-col">
-            <span class="family-role">🕊 Madrinas</span>
-            <p class="family-names">María Pirela<br />Valeska Gómez</p>
-          </div>
-
-          <!-- Padrinos -->
-          <div class="family-col">
-            <span class="family-role">🕊 Padrinos</span>
-            <p class="family-names">José Prieto<br />Juan Fereira</p>
-          </div>
-        </div>
+        <div class="divider-gold">✦ ✧ ✦</div>
 
         <!-- Código de vestimenta -->
         <div class="dress-box">

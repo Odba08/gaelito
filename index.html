@@ -3,26 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Bautizo de Gael Alejandro · Viernes 23 de octubre</title>
-  <meta name="description" content="Celebra junto a nosotros el bautizo de Gael Alejandro Pirela González. Viernes 23 de octubre a las 5:00 p.m. en la Iglesia Padre Vílchez." />
-  <meta name="theme-color" content="#efe3d0" />
+  <title>Bautizo de Gael Alejandro · Viernes 23 de Octubre</title>
+  <meta name="description" content="Con mucha alegría los invitamos al bautizo de nuestro hijo Gael Alejandro Pirela González. Viernes 23 de octubre a las 5:00 p.m. en la Parroquia Santísimo Cristo de San Francisco (Padre Vílchez). Recepción: Trovas." />
+  <meta name="theme-color" content="#ede3d2" />
   <meta property="og:title" content="Bautizo de Gael Alejandro" />
-  <meta property="og:description" content="Celebra junto a nosotros el bautizo de Gael Alejandro · Viernes 23 de octubre · 5:00 p.m. · Iglesia Padre Vílchez" />
+  <meta property="og:description" content="Viernes 23 de octubre · 5:00 p.m. · Parroquia Santísimo Cristo de San Francisco (Padre Vílchez) · Recepción: Trovas" />
   <meta property="og:image" content="img/gael3.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Great+Vibes&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Great+Vibes&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --cream: #faf5ec;
-      --sand: #f0e4d2;
-      --beige: #e5d4bb;
-      --taupe: #b89a71;
-      --cocoa: #755535;
-      --ink: #443424;
-      --gold: #c5a059;
-      --gold-dark: #9e7934;
-      --white: #ffffff;
+      --bg-warm: #f6efe4;
+      --card-bg: #fffdf9;
+      --gold: #bfa05d;
+      --gold-dark: #8c6c32;
+      --gold-light: #e5cf9c;
+      --olive: #728065;
+      --cocoa: #5c432d;
+      --ink: #3b2c1f;
+      --muted: #8c7b6c;
+      --border-gold: rgba(191, 160, 93, 0.45);
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -30,16 +31,19 @@
       font-family: 'Jost', sans-serif;
       color: var(--ink);
       background:
-        radial-gradient(circle at 20% 0%, #fcf7ef 0, transparent 55%),
-        radial-gradient(circle at 85% 45%, #ecdac0 0, transparent 50%),
-        linear-gradient(180deg, var(--cream), var(--sand));
+        radial-gradient(circle at 15% 10%, #fdfbf7 0, transparent 45%),
+        radial-gradient(circle at 85% 35%, #ece1cf 0, transparent 40%),
+        linear-gradient(180deg, #f7f1e7, #ebdcc7);
       background-attachment: fixed;
-      overflow-x: hidden;
       min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow-x: hidden;
     }
     body.locked { overflow: hidden; }
 
-    /* Partículas doradas sutiles */
+    /* Partículas doradas */
     #sparkles { position: fixed; inset: 0; pointer-events: none; z-index: 1; overflow: hidden; }
     .sparkle {
       position: absolute; bottom: -20px; border-radius: 50%;
@@ -54,354 +58,480 @@
     }
 
     /* ============================================================
-       PORTADA: CARTA QUE SE ABRE
+       SOBRE INTERACTIVO DE ENTRADA (COVER)
        ============================================================ */
     #cover {
       position: fixed; inset: 0; z-index: 100;
       display: flex; flex-direction: column; align-items: center; justify-content: center;
-      text-align: center; padding: 20px 14px; overflow-y: auto;
-      background:
-        radial-gradient(circle at 50% 25%, #fbf5eb 0, #ebdcc3 65%, #d9c4a0 100%);
-      transition: opacity 1s cubic-bezier(.4, 0, .2, 1), transform 1.1s cubic-bezier(.4, 0, .2, 1), visibility 1.1s;
+      text-align: center; padding: 20px;
+      background: radial-gradient(circle at 50% 30%, #faf4ea 0, #e8d7be 70%, #d8c2a0 100%);
+      transition: opacity 0.9s cubic-bezier(.4, 0, .2, 1), transform 1s cubic-bezier(.4, 0, .2, 1), visibility 1s;
     }
-    #cover.open { opacity: 0; transform: scale(1.05); visibility: hidden; pointer-events: none; }
-
-    .cover-intro {
-      font-family: 'Jost'; letter-spacing: .4em; font-size: .75rem; text-transform: uppercase;
-      color: var(--cocoa); margin-bottom: 22px; transition: opacity .5s;
-    }
-    #cover.opened .cover-intro { opacity: 0; }
-
-    /* Contenedor del Sobre y Carta */
-    .envelope-box {
-      position: relative;
-      width: min(90vw, 360px);
-      height: 480px;
-      perspective: 1200px;
-    }
-
-    /* El Sobre */
-    .envelope {
-      position: absolute;
-      left: 0; right: 0; bottom: 0;
-      height: 250px;
-      z-index: 5;
-      transition: transform 1s cubic-bezier(.4, 0, .2, 1);
-    }
-    #cover.opened .envelope {
-      transform: translateY(30px);
-    }
-
-    /* Fondo del interior del sobre */
-    .envelope-back {
-      position: absolute; inset: 0;
-      background: linear-gradient(180deg, #d8c19c, #cbaf86);
-      border-radius: 8px 8px 14px 14px;
-      box-shadow: 0 20px 45px rgba(80, 55, 30, .32);
-    }
-
-    /* La Carta deslizable */
-    .invitation-card {
-      position: absolute;
-      left: 14px; right: 14px; bottom: 12px;
-      height: 410px;
-      background: linear-gradient(180deg, #ffffff 0%, #fdf8f0 70%, #f8eedc 100%);
-      border-radius: 12px 12px 6px 6px;
-      box-shadow: 0 10px 30px rgba(90, 60, 30, .22);
-      border: 1px solid rgba(195, 160, 100, .4);
-      z-index: 3;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      padding: 22px 18px 18px;
-      text-align: center;
-      transform: translateY(0);
-      transition: transform 1.2s cubic-bezier(.22, 1, .36, 1), box-shadow 1.2s;
-    }
-    .invitation-card::before {
-      content: "";
-      position: absolute; inset: 7px;
-      border: 1px solid rgba(195, 160, 100, .5);
-      border-radius: 8px 8px 4px 4px;
+    #cover.open {
+      opacity: 0;
+      transform: scale(1.08);
+      visibility: hidden;
       pointer-events: none;
     }
 
-    /* Estado abierto: la carta sube elegante */
-    #cover.opened .invitation-card {
-      transform: translateY(-135px);
-      box-shadow: 0 25px 60px rgba(80, 55, 30, .38);
+    .cover-intro {
+      font-family: 'Jost'; letter-spacing: .45em; font-size: .78rem; text-transform: uppercase;
+      color: var(--cocoa); margin-bottom: 24px; transition: opacity .4s;
+    }
+    #cover.opening .cover-intro { opacity: 0; }
+
+    .env-stage {
+      position: relative;
+      width: min(88vw, 340px);
+      height: 230px;
+      perspective: 1200px;
+      cursor: pointer;
     }
 
-    /* Contenido de la carta */
-    .card-photo {
-      width: 105px; height: 130px;
-      object-fit: cover; object-position: 50% 25%;
-      border-radius: 60px 60px 10px 10px;
-      border: 3.5px solid #fff;
-      box-shadow: 0 8px 20px rgba(90, 60, 30, .25);
-      margin-bottom: 12px;
-    }
-    .card-phrase-top {
-      font-family: 'Jost'; text-transform: uppercase; letter-spacing: .24em;
-      font-size: .65rem; color: var(--taupe); font-weight: 500; margin-bottom: 2px;
-    }
-    .card-title-bautizo {
-      font-family: 'Great Vibes', cursive;
-      font-size: 2.8rem; line-height: 1.05;
-      color: var(--cocoa);
-      margin: -2px 0 0;
-    }
-    .card-phrase-mid {
-      font-family: 'Cormorant Garamond', serif; font-style: italic;
-      font-size: 1.05rem; color: var(--ink); margin-top: -2px;
-    }
-    .card-baby-name {
-      font-family: 'Great Vibes', cursive;
-      font-size: 2.3rem; line-height: 1.05;
-      color: var(--cocoa);
-      margin: 2px 0 0;
-    }
-    .card-surname {
-      font-family: 'Cormorant Garamond', serif; letter-spacing: .18em; text-transform: uppercase;
-      font-size: .85rem; color: var(--taupe); font-weight: 600; margin-top: 2px;
+    .envelope-box {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, #dcc8a8, #cdb28e);
+      border-radius: 8px 8px 12px 12px;
+      box-shadow: 0 20px 50px rgba(70, 48, 25, 0.35);
     }
 
-    /* Solapas frontales del sobre */
-    .envelope-flaps-front {
-      position: absolute; inset: 0; z-index: 6; pointer-events: none;
-    }
-    .flap-left {
-      position: absolute; inset: 0;
-      background: linear-gradient(90deg, #ecd9be, #e2cca8);
-      clip-path: polygon(0 0, 0 100%, 55% 55%);
-      filter: drop-shadow(2px 0 3px rgba(0,0,0,.08));
-    }
-    .flap-right {
-      position: absolute; inset: 0;
-      background: linear-gradient(270deg, #ecd9be, #e2cca8);
-      clip-path: polygon(100% 0, 100% 100%, 45% 55%);
-      filter: drop-shadow(-2px 0 3px rgba(0,0,0,.08));
-    }
-    .flap-bottom {
-      position: absolute; inset: 0;
-      background: linear-gradient(0deg, #dfc6a0, #f2e2ca);
-      clip-path: polygon(0 100%, 100% 100%, 50% 48%);
-      filter: drop-shadow(0 -3px 6px rgba(80,50,20,.16));
-    }
-
-    /* Solapa superior abatible */
-    .flap-top {
-      position: absolute; left: 0; right: 0; top: 0;
-      height: 140px;
-      background: linear-gradient(180deg, #ecdac0, #dec69f);
+    /* Solapa superior */
+    .env-flap-top {
+      position: absolute; left: 0; right: 0; top: 0; height: 130px;
+      background: linear-gradient(180deg, #ecdac0, #dfc7a1);
       clip-path: polygon(0 0, 100% 0, 50% 100%);
       transform-origin: top center;
       transform: rotateX(0deg);
-      transition: transform .9s cubic-bezier(.4, 0, .2, 1), z-index 0s linear .45s;
-      z-index: 8;
-      filter: drop-shadow(0 4px 6px rgba(70,45,20,.18));
+      transition: transform .8s cubic-bezier(.4, 0, .2, 1), z-index 0s linear .4s;
+      z-index: 6;
+      filter: drop-shadow(0 4px 6px rgba(60, 40, 20, 0.2));
     }
-    #cover.opened .flap-top {
+    #cover.opening .env-flap-top {
       transform: rotateX(180deg);
-      z-index: 2;
-      background: linear-gradient(0deg, #c7ad86, #d9c39e);
+      z-index: 1;
+      background: linear-gradient(0deg, #c4a982, #d5bd98);
     }
 
-    /* Sello de lacre dorado */
+    /* Solapas frontales */
+    .env-flaps-front { position: absolute; inset: 0; z-index: 4; pointer-events: none; }
+    .flap-l {
+      position: absolute; inset: 0;
+      background: linear-gradient(90deg, #e7d5bd, #dcbf99);
+      clip-path: polygon(0 0, 0 100%, 55% 55%);
+    }
+    .flap-r {
+      position: absolute; inset: 0;
+      background: linear-gradient(270deg, #e7d5bd, #dcbf99);
+      clip-path: polygon(100% 0, 100% 100%, 45% 55%);
+    }
+    .flap-b {
+      position: absolute; inset: 0;
+      background: linear-gradient(0deg, #d8bc93, #eddabf);
+      clip-path: polygon(0 100%, 100% 100%, 50% 48%);
+      filter: drop-shadow(0 -3px 6px rgba(70, 45, 20, 0.15));
+    }
+
+    /* Sello de lacre */
     .wax-seal {
-      position: absolute;
-      left: 50%; top: 110px;
+      position: absolute; left: 50%; top: 100px;
       transform: translateX(-50%);
-      width: 62px; height: 62px;
-      border-radius: 50%;
-      border: none; cursor: pointer;
-      background: radial-gradient(circle at 35% 30%, #ebd49f, #b8935a 68%, #93703a 100%);
-      color: #fff9ed;
+      width: 64px; height: 64px;
+      border-radius: 50%; border: none; cursor: pointer;
+      background: radial-gradient(circle at 35% 30%, #edd6a3, #b8935a 68%, #8e6d38 100%);
+      color: #fff9ee;
       font-family: 'Great Vibes', cursive;
-      font-size: 2.2rem; line-height: 1;
+      font-size: 2.3rem; line-height: 1;
       display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 8px 20px rgba(100, 70, 35, .5), inset 0 -4px 8px rgba(0,0,0,.2), inset 0 4px 6px rgba(255,255,255,.4);
-      z-index: 10;
-      transition: transform .4s, opacity .4s, visibility .4s;
+      box-shadow: 0 8px 22px rgba(90, 60, 30, .45), inset 0 -4px 8px rgba(0,0,0,.2), inset 0 4px 6px rgba(255,255,255,.4);
+      z-index: 8;
+      transition: transform .35s, opacity .35s;
       animation: sealPulse 2.4s ease-in-out infinite;
     }
     .wax-seal:hover { transform: translateX(-50%) scale(1.08); }
-    #cover.opened .wax-seal {
-      opacity: 0; transform: translateX(-50%) scale(.3);
-      visibility: hidden; pointer-events: none; animation: none;
+    #cover.opening .wax-seal {
+      opacity: 0; transform: translateX(-50%) scale(.3); pointer-events: none; animation: none;
     }
     @keyframes sealPulse {
-      0%, 100% { box-shadow: 0 8px 20px rgba(100,70,35,.5), 0 0 0 0 rgba(195,160,100,.6); }
-      50% { box-shadow: 0 8px 20px rgba(100,70,35,.5), 0 0 0 16px rgba(195,160,100,0); }
+      0%, 100% { box-shadow: 0 8px 22px rgba(90,60,30,.45), 0 0 0 0 rgba(191,160,93,.6); }
+      50% { box-shadow: 0 8px 22px rgba(90,60,30,.45), 0 0 0 16px rgba(191,160,93,0); }
     }
 
-    /* Botón Ver Invitación al abrir */
-    #enterBtn {
-      margin-top: 26px;
-      opacity: 0; transform: translateY(14px);
-      pointer-events: none;
-      transition: opacity .8s ease 1s, transform .8s ease 1s;
+    .cover-hint {
+      margin-top: 24px; font-size: .78rem; letter-spacing: .24em; text-transform: uppercase;
+      color: var(--cocoa); opacity: .85; transition: opacity .3s;
     }
-    #cover.opened #enterBtn {
-      opacity: 1; transform: translateY(0);
-      pointer-events: auto;
-    }
-    .tap-hint {
-      margin-top: 14px;
-      font-size: .75rem; letter-spacing: .22em; text-transform: uppercase;
-      color: var(--cocoa); opacity: .85; transition: opacity .4s;
-    }
-    #cover.opened .tap-hint { opacity: 0; }
+    #cover.opening .cover-hint { opacity: 0; }
 
     /* ============================================================
-       LAYOUT PRINCIPAL DE LA INVITACIÓN
+       TARJETA MODELADA PRINCIPAL (INSPIRADA EN PINTEREST)
        ============================================================ */
-    main { position: relative; z-index: 2; max-width: 680px; margin: 0 auto; padding: 0 20px 80px; }
-    section { text-align: center; padding: 50px 0 10px; }
-
-    .reveal { opacity: 0; transform: translateY(32px); transition: opacity .9s ease, transform .9s ease; }
-    .reveal.in { opacity: 1; transform: none; }
-
-    .eyebrow { letter-spacing: .42em; text-transform: uppercase; font-size: .74rem; color: var(--taupe); font-weight: 600; }
-    .script { font-family: 'Great Vibes', cursive; font-weight: 400; color: var(--cocoa); }
-    .serif { font-family: 'Cormorant Garamond', serif; }
-
-    /* Hero Principal */
-    .hero { padding-top: 45px; }
-    .hero .frame {
-      width: min(76vw, 290px); aspect-ratio: 3/4; margin: 24px auto 26px; position: relative;
-      border-radius: 999px 999px 20px 20px; padding: 8px;
-      background: linear-gradient(145deg, #e9d3a5, #b8935a 50%, #e9d3a5);
-      box-shadow: 0 20px 48px rgba(85, 58, 30, .3);
+    .card-wrapper {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 540px;
+      margin: 30px auto 60px;
+      padding: 0 14px;
     }
-    .hero .frame img {
-      width: 100%; height: 100%; object-fit: cover; object-position: 50% 25%;
-      border-radius: 999px 999px 14px 14px; display: block;
-    }
-    .hero h2 { font-size: clamp(3.2rem, 14vw, 5.2rem); line-height: 1; }
-    .hero .full { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; letter-spacing: .16em; text-transform: uppercase; margin-top: 6px; color: var(--ink); }
 
-    .divider { display: flex; align-items: center; justify-content: center; gap: 14px; margin: 28px auto; color: var(--gold); }
-    .divider::before, .divider::after { content: ""; height: 1px; width: 75px; background: linear-gradient(90deg, transparent, var(--gold)); }
-    .divider::after { transform: scaleX(-1); }
+    .invitation-sheet {
+      position: relative;
+      background: var(--card-bg);
+      border-radius: 20px;
+      padding: 42px 28px 46px;
+      text-align: center;
+      box-shadow:
+        0 24px 60px rgba(80, 55, 30, 0.18),
+        0 4px 16px rgba(80, 55, 30, 0.08);
+      border: 1px solid rgba(191, 160, 93, 0.4);
+      overflow: hidden;
+    }
 
-    .quote { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.4rem; line-height: 1.55; max-width: 500px; margin: 0 auto; color: var(--ink); }
-    .quote small { display: block; font-style: normal; font-family: 'Jost'; letter-spacing: .28em; font-size: .7rem; text-transform: uppercase; margin-top: 10px; color: var(--taupe); }
+    /* Doble marco delicado */
+    .invitation-sheet::before {
+      content: "";
+      position: absolute; inset: 12px;
+      border: 1.5px solid var(--border-gold);
+      border-radius: 14px;
+      pointer-events: none;
+    }
+    .invitation-sheet::after {
+      content: "";
+      position: absolute; inset: 16px;
+      border: 0.5px solid rgba(191, 160, 93, 0.3);
+      border-radius: 10px;
+      pointer-events: none;
+    }
 
-    /* Tarjeta de Fecha & Lugar */
-    .card {
-      background: rgba(255, 252, 245, .82); backdrop-filter: blur(10px);
-      border: 1px solid rgba(195,160,100,.5); border-radius: 24px; padding: 34px 22px;
-      box-shadow: 0 14px 38px rgba(110, 80, 45, .13); margin-top: 24px; position: relative;
+    /* Botánica en esquinas SVG */
+    .corner-decor {
+      position: absolute;
+      width: 110px; height: 110px;
+      pointer-events: none;
+      opacity: 0.85;
+      z-index: 1;
     }
-    .card::before { content: ""; position: absolute; inset: 7px; border: 1px dashed rgba(195,160,100,.45); border-radius: 17px; pointer-events: none; }
-    .date-row { display: flex; align-items: center; justify-content: center; gap: 20px; margin: 16px 0 4px; }
-    .date-row .side { font-family: 'Cormorant Garamond', serif; text-transform: uppercase; letter-spacing: .25em; font-size: 1rem; padding: 6px 0; border-top: 1px solid var(--gold); border-bottom: 1px solid var(--gold); }
-    .date-row .num { font-family: 'Cormorant Garamond', serif; font-size: 5rem; font-weight: 500; line-height: 1; color: var(--cocoa); }
-    .month { font-family: 'Cormorant Garamond', serif; letter-spacing: .38em; text-transform: uppercase; font-size: 1.15rem; }
-    .time { margin-top: 16px; font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; }
-    .place { margin-top: 24px; }
-    .place h3 { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 1.65rem; color: var(--cocoa); }
-    .place p { margin-top: 4px; font-weight: 300; line-height: 1.6; }
+    .corner-tl { top: 0; left: 0; }
+    .corner-tr { top: 0; right: 0; transform: scaleX(-1); }
+    .corner-bl { bottom: 0; left: 0; transform: scaleY(-1); }
+    .corner-br { bottom: 0; right: 0; transform: scale(-1); }
 
-    /* Botones de acción */
-    .btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 24px; }
-    .btn {
-      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-      padding: 13px 26px; border-radius: 999px;
-      text-decoration: none; font-family: 'Jost'; font-weight: 500; font-size: .84rem; letter-spacing: .14em; text-transform: uppercase;
-      cursor: pointer; border: 1px solid var(--cocoa); transition: transform .25s, box-shadow .25s, background .25s;
+    .sheet-content { position: relative; z-index: 2; }
+
+    /* Encabezado con Cruz y Paloma */
+    .cross-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+      position: relative;
     }
-    .btn.primary {
-      background: linear-gradient(135deg, #cba468, #a8824b); color: #fffaf0; border-color: transparent;
-      box-shadow: 0 8px 22px rgba(168, 130, 75, .38);
+    .cross-icon {
+      width: 64px; height: 64px;
+      fill: var(--gold);
     }
-    .btn.wa {
-      background: linear-gradient(135deg, #6ea07b, #4e835d); color: #ffffff; border-color: transparent;
-      box-shadow: 0 8px 20px rgba(78, 131, 93, .38);
+    .dove-icon {
+      position: absolute;
+      right: 15px; top: -5px;
+      width: 48px; height: 48px;
+      opacity: 0.85;
     }
-    .btn.ghost { background: transparent; color: var(--cocoa); }
-    .btn:hover { transform: translateY(-2.5px); box-shadow: 0 12px 24px rgba(110, 80, 45, .25); }
-    .btn.ghost:hover { background: rgba(195, 160, 100, .18); }
+
+    .invite-lead {
+      font-family: 'Jost', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: .28em;
+      font-size: .8rem;
+      font-weight: 500;
+      color: var(--muted);
+      margin-bottom: 2px;
+    }
+
+    .title-bautizo {
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(3.8rem, 16vw, 5.2rem);
+      line-height: 1.05;
+      color: var(--cocoa);
+      margin: 2px 0 0;
+      font-weight: 400;
+    }
+
+    .title-de-hijo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      font-family: 'Cormorant Garamond', serif;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      font-size: .95rem;
+      color: var(--gold-dark);
+      margin: 6px 0;
+    }
+    .title-de-hijo::before, .title-de-hijo::after {
+      content: ""; height: 1px; width: 40px; background: var(--gold-light);
+    }
+
+    .baby-name {
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(3.2rem, 13vw, 4.4rem);
+      line-height: 1.08;
+      color: var(--cocoa);
+      margin: 4px 0 2px;
+    }
+
+    .baby-surname {
+      font-family: 'Cormorant Garamond', serif;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    /* Foto en arco dorado */
+    .photo-arch {
+      width: min(65vw, 240px);
+      aspect-ratio: 3/4;
+      margin: 0 auto 24px;
+      position: relative;
+      border-radius: 999px 999px 18px 18px;
+      padding: 7px;
+      background: linear-gradient(145deg, #ecd6ad, #bfa05d 50%, #ecd6ad);
+      box-shadow: 0 16px 36px rgba(80, 55, 30, 0.25);
+    }
+    .photo-arch img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: 50% 25%;
+      border-radius: 999px 999px 12px 12px;
+      display: block;
+    }
+
+    .divider-heart {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      color: var(--gold); margin: 20px auto; font-size: .85rem;
+    }
+    .divider-heart::before, .divider-heart::after {
+      content: ""; height: 1px; width: 60px; background: linear-gradient(90deg, transparent, var(--gold));
+    }
+    .divider-heart::after { transform: scaleX(-1); }
+
+    /* Fila de 3 columnas de detalles: Fecha | Hora | Iglesia */
+    .details-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1.3fr;
+      gap: 8px;
+      align-items: stretch;
+      margin: 22px 0 10px;
+      padding: 16px 8px;
+      background: rgba(246, 239, 228, 0.55);
+      border-radius: 16px;
+      border: 1px solid rgba(191, 160, 93, 0.25);
+    }
+    .detail-col {
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      padding: 6px 4px;
+    }
+    .detail-col:not(:last-child) {
+      border-right: 1px solid rgba(191, 160, 93, 0.25);
+    }
+    .detail-icon { width: 30px; height: 30px; fill: var(--gold); margin-bottom: 6px; }
+    .detail-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: .75rem; text-transform: uppercase; letter-spacing: .12em; color: var(--muted);
+      font-weight: 600;
+    }
+    .detail-val {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem; font-weight: 700; color: var(--cocoa);
+      line-height: 1.25; margin-top: 2px;
+    }
+    .detail-sub {
+      font-size: .72rem; color: var(--muted); margin-top: 2px; line-height: 1.2;
+    }
+
+    /* Recepción Trovas */
+    .reception-block {
+      margin: 24px 0 16px;
+      padding: 18px 14px;
+      background: linear-gradient(180deg, #fbf7ee, #f3e9d8);
+      border-radius: 14px;
+      border: 1px dashed rgba(191, 160, 93, 0.5);
+    }
+    .reception-intro {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.15rem;
+      line-height: 1.45;
+      color: var(--ink);
+    }
+    .reception-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: var(--gold-dark);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-top: 8px;
+    }
+
+    /* Padres y Padrinos */
+    .family-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px 12px;
+      margin: 26px 0 10px;
+      text-align: center;
+    }
+    .family-col {
+      padding: 14px 8px;
+      background: rgba(255, 255, 255, 0.6);
+      border-radius: 12px;
+      border: 1px solid rgba(191, 160, 93, 0.25);
+    }
+    .family-col.full-col {
+      grid-column: span 2;
+    }
+    .family-role {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: .88rem; text-transform: uppercase; letter-spacing: .18em;
+      font-weight: 700; color: var(--gold-dark);
+      margin-bottom: 6px;
+      border-bottom: 1px solid rgba(191,160,93,.35);
+      padding-bottom: 3px;
+    }
+    .family-names {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.28rem;
+      color: var(--ink);
+      line-height: 1.4;
+      font-weight: 500;
+    }
 
     /* Código de vestimenta */
-    .dress { margin-top: 28px; padding-top: 22px; border-top: 1px solid rgba(195,160,100,.35); }
-    .swatches { display: flex; justify-content: center; gap: 10px; margin-top: 12px; }
-    .swatches i { width: 28px; height: 28px; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 3px 8px rgba(90,64,38,.2); }
+    .dress-box {
+      margin: 22px 0 10px;
+      padding: 16px;
+      border-top: 1px solid rgba(191,160,93,.3);
+    }
+    .dress-title {
+      font-family: 'Jost', sans-serif;
+      text-transform: uppercase; letter-spacing: .25em; font-size: .75rem;
+      color: var(--muted); font-weight: 600;
+    }
+    .dress-val {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem; color: var(--cocoa); font-weight: 600;
+      margin-top: 4px;
+    }
+    .swatches {
+      display: flex; justify-content: center; gap: 10px; margin-top: 12px;
+    }
+    .swatches i {
+      width: 26px; height: 26px; border-radius: 50%;
+      border: 2px solid #fff; box-shadow: 0 3px 8px rgba(70,45,20,.18);
+    }
 
     /* Cuenta regresiva */
-    .count { display: flex; justify-content: center; gap: 10px; margin-top: 24px; }
-    .count div { min-width: 68px; padding: 12px 6px; border-radius: 16px; background: rgba(255,250,242,.85); border: 1px solid rgba(195,160,100,.4); }
-    .count b { display: block; font-family: 'Cormorant Garamond', serif; font-size: 2.1rem; font-weight: 600; color: var(--cocoa); line-height: 1; }
-    .count span { font-size: .62rem; letter-spacing: .2em; text-transform: uppercase; color: var(--taupe); }
-
-    /* ============================================================
-       SECCIÓN DE PADRINOS (NUEVA)
-       ============================================================ */
-    .godparents-card {
-      background: rgba(255, 252, 245, .88); backdrop-filter: blur(10px);
-      border: 1px solid rgba(195, 160, 100, .5);
-      border-radius: 24px; padding: 34px 20px;
-      box-shadow: 0 14px 38px rgba(110, 80, 45, .12);
-      margin-top: 24px; position: relative;
+    .countdown-row {
+      display: flex; justify-content: center; gap: 8px; margin: 24px 0 10px;
     }
-    .godparents-card::before {
-      content: ""; position: absolute; inset: 7px;
-      border: 1px dashed rgba(195, 160, 100, .4);
-      border-radius: 17px; pointer-events: none;
+    .count-box {
+      min-width: 65px; padding: 10px 4px;
+      background: #fdfaf3; border: 1px solid rgba(191,160,93,.35);
+      border-radius: 12px;
     }
-    .godparents-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 20px 14px; margin-top: 24px;
+    .count-num {
+      display: block; font-family: 'Cormorant Garamond', serif;
+      font-size: 1.9rem; font-weight: 700; color: var(--cocoa); line-height: 1;
     }
-    .godparent-col h4 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.25rem; font-weight: 600;
-      color: var(--gold-dark); text-transform: uppercase; letter-spacing: .15em;
-      margin-bottom: 10px; padding-bottom: 6px;
-      border-bottom: 1px solid rgba(195,160,100,.35);
-    }
-    .godparent-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.35rem; font-weight: 500;
-      color: var(--ink); margin: 6px 0;
-      line-height: 1.3;
+    .count-lbl {
+      font-size: .58rem; letter-spacing: .18em; text-transform: uppercase; color: var(--muted);
     }
 
-    /* Confirmación RSVP */
-    .rsvp { margin-top: 24px; }
-    .rsvp .serif { font-size: 1.45rem; line-height: 1.5; }
-    .btn.wa-lg {
-      background: linear-gradient(135deg, #6ea07b, #4e835d); color: #fffaf0; border-color: transparent;
-      box-shadow: 0 8px 22px rgba(78, 131, 93, .4); padding: 16px 32px; font-size: .9rem;
+    /* Botones */
+    .actions-row {
+      display: flex; flex-direction: column; gap: 12px;
+      margin-top: 26px; align-items: center;
     }
-    .rsvp small { display: block; margin-top: 12px; font-size: .78rem; letter-spacing: .12em; color: var(--taupe); }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      width: 100%; max-width: 380px; padding: 15px 24px;
+      border-radius: 999px; text-decoration: none;
+      font-family: 'Jost', sans-serif; font-weight: 500; font-size: .88rem;
+      letter-spacing: .14em; text-transform: uppercase;
+      cursor: pointer; border: 1px solid transparent;
+      transition: transform .25s, box-shadow .25s;
+    }
+    .btn.primary {
+      background: linear-gradient(135deg, #c5a363, #9b7537);
+      color: #fffdf8;
+      box-shadow: 0 8px 24px rgba(155, 117, 55, 0.38);
+    }
+    .btn.wa {
+      background: linear-gradient(135deg, #6c9c78, #4c7e5a);
+      color: #ffffff;
+      box-shadow: 0 8px 22px rgba(76, 126, 90, 0.36);
+    }
+    .btn.ghost {
+      background: transparent; border-color: var(--cocoa); color: var(--cocoa);
+    }
+    .btn:hover {
+      transform: translateY(-2.5px);
+      box-shadow: 0 12px 28px rgba(80, 55, 30, 0.26);
+    }
+
+    .wa-subtext {
+      margin-top: 6px; font-size: .75rem; letter-spacing: .12em; color: var(--muted);
+    }
 
     /* Footer */
-    footer { text-align: center; padding: 45px 0 10px; }
-    footer .script { font-size: 2.8rem; }
-    footer p { margin-top: 8px; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.15rem; }
+    .sheet-footer {
+      margin-top: 36px; padding-top: 20px;
+      border-top: 1px solid rgba(191,160,93,.3);
+    }
+    .sheet-footer .script {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.8rem; color: var(--cocoa);
+    }
+    .sheet-footer p {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-size: 1.2rem; color: var(--muted);
+      margin-top: 4px;
+    }
+    .sheet-footer .fam {
+      font-family: 'Jost', sans-serif; font-style: normal;
+      letter-spacing: .28em; text-transform: uppercase; font-size: .72rem;
+      color: var(--gold-dark); margin-top: 16px; font-weight: 600;
+    }
 
     /* Botón flotante de música */
     #music {
       position: fixed; right: 18px; bottom: 18px; z-index: 50;
       width: 50px; height: 50px; border-radius: 50%;
-      border: 1px solid rgba(195,160,100,.75); background: rgba(255,250,240,.92); color: var(--cocoa);
-      font-size: 1.3rem; cursor: pointer; box-shadow: 0 8px 22px rgba(90,64,38,.25);
-      display: none; align-items: center; justify-content: center; transition: transform .25s;
+      border: 1px solid rgba(191,160,93,.8);
+      background: rgba(255,252,245,.94);
+      color: var(--cocoa);
+      font-size: 1.3rem; cursor: pointer;
+      box-shadow: 0 8px 22px rgba(80,55,30,.25);
+      display: none; align-items: center; justify-content: center;
+      transition: transform .25s;
     }
     #music.show { display: flex; }
     #music:hover { transform: scale(1.1); }
     #music.playing { animation: musicGlow 3s ease-in-out infinite; }
-    @keyframes musicGlow { 50% { box-shadow: 0 0 0 10px rgba(195,160,100,.2), 0 8px 22px rgba(90,64,38,.28); } }
-
-    @media (max-width: 420px) {
-      .godparents-grid { grid-template-columns: 1fr; gap: 18px; }
-      .date-row .num { font-size: 4.4rem; }
-      .envelope-box { height: 460px; }
-      .invitation-card { height: 395px; }
+    @keyframes musicGlow {
+      50% { box-shadow: 0 0 0 10px rgba(191,160,93,.22), 0 8px 22px rgba(80,55,30,.28); }
     }
-    @media (prefers-reduced-motion: reduce) {
-      .sparkle, .wax-seal, #music.playing { animation: none; }
-      .reveal { transition: none; opacity: 1; transform: none; }
+
+    @media (max-width: 480px) {
+      .invitation-sheet { padding: 34px 18px 38px; }
+      .details-row { grid-template-columns: 1fr; gap: 12px; }
+      .detail-col:not(:last-child) { border-right: none; border-bottom: 1px solid rgba(191,160,93,.25); padding-bottom: 10px; }
+      .family-block { grid-template-columns: 1fr; }
+      .family-col.full-col { grid-column: span 1; }
     }
   </style>
 </head>
@@ -409,184 +539,230 @@
 
   <div id="sparkles" aria-hidden="true"></div>
 
-  <!-- PORTADA: CARTA CON SOBRE INTERACTIVO -->
-  <div id="cover" role="dialog" aria-label="Invitación de bautizo">
+  <!-- SOBRE INTERACTIVO DE ENTRADA -->
+  <div id="cover" role="dialog" aria-label="Invitación de Bautizo">
     <p class="cover-intro">Estás invitado</p>
 
-    <div class="envelope-box">
-      <!-- Sobre -->
-      <div class="envelope" id="envelopeWrapper">
-        <div class="envelope-back"></div>
-
-        <!-- Carta que sale del sobre -->
-        <div class="invitation-card" id="invitationCard">
-          <img class="card-photo" src="img/gael3.jpg" alt="Gael Alejandro sonriendo" />
-          <p class="card-phrase-top">Celebra junto a nosotros el</p>
-          <h2 class="card-title-bautizo">Bautizo</h2>
-          <p class="card-phrase-mid">de</p>
-          <h3 class="card-baby-name">Gael Alejandro</h3>
-          <p class="card-surname">Pirela González</p>
+    <div class="env-stage" id="envelopeStage">
+      <div class="envelope-box">
+        <div class="env-flaps-front">
+          <div class="flap-l"></div>
+          <div class="flap-r"></div>
+          <div class="flap-b"></div>
         </div>
-
-        <!-- Solapas frontales -->
-        <div class="envelope-flaps-front">
-          <div class="flap-left"></div>
-          <div class="flap-right"></div>
-          <div class="flap-bottom"></div>
-        </div>
-
-        <!-- Solapa superior abatible -->
-        <div class="flap-top" id="topFlap"></div>
-
-        <!-- Sello de lacre interactivo -->
+        <div class="env-flap-top"></div>
         <button class="wax-seal" id="openBtn" aria-label="Abrir sobre de invitación">G</button>
       </div>
     </div>
 
-    <!-- Botón para pasar a la invitación completa -->
-    <button class="btn primary" id="enterBtn" type="button">Ver Invitación Completa ↓</button>
-    <p class="tap-hint" id="tapHint">Toca el sello para abrir ♪</p>
+    <p class="cover-hint">Toca el sobre para abrir ♪</p>
   </div>
 
-  <!-- Audio de fondo (ssstik.io_1792550188696.mp3 convertido a limpio MP3) -->
+  <!-- Audio de fondo -->
   <audio id="bgm" src="audio/musica.mp3" loop preload="auto"></audio>
 
-  <!-- CONTENIDO COMPLETO DE LA INVITACIÓN -->
-  <main>
-    <!-- Hero con la única foto principal de Gael -->
-    <section class="hero reveal">
-      <p class="eyebrow">Con la bendición de Dios</p>
-      <div class="frame">
-        <img src="img/gael3.jpg" alt="Gael Alejandro con su traje beige de bautizo" />
-      </div>
-      <h2 class="script">Gael Alejandro</h2>
-      <p class="full">Pirela González</p>
-      <div class="divider">✦</div>
-      <p class="quote">
-        “Dejad que los niños vengan a mí, y no se lo impidáis,<br />porque de los tales es el reino de los cielos.”
-        <small>Mateo 19:14</small>
-      </p>
-    </section>
+  <!-- TARJETA PRINCIPAL MODELADA DE INVITACIÓN -->
+  <div class="card-wrapper">
+    <article class="invitation-sheet">
 
-    <!-- Detalles del Bautizo -->
-    <section class="reveal">
-      <p class="eyebrow">El Bautizo</p>
-      <p class="serif" style="font-size:1.5rem; margin-top:14px; line-height:1.5;">
-        Con inmensa alegría queremos compartir contigo este día tan especial en la vida de nuestro pequeño.
-      </p>
+      <!-- Decoraciones botánicas en las 4 esquinas (SVG nítido) -->
+      <svg class="corner-decor corner-tl" viewBox="0 0 100 100" fill="none">
+        <path d="M8 8 C 25 15, 45 35, 50 65" stroke="#8c9d7d" stroke-width="1.8" stroke-linecap="round" opacity="0.7"/>
+        <path d="M12 18 Q 28 8, 38 20 Q 22 26, 12 18 Z" fill="#a1b392" opacity="0.65"/>
+        <path d="M22 30 Q 40 22, 48 36 Q 32 40, 22 30 Z" fill="#8c9d7d" opacity="0.75"/>
+        <path d="M32 45 Q 52 40, 56 56 Q 40 58, 32 45 Z" fill="#7a8d6b" opacity="0.7"/>
+        <path d="M8 25 Q 18 38, 12 50 Q 4 40, 8 25 Z" fill="#9ab08c" opacity="0.6"/>
+      </svg>
+      <svg class="corner-decor corner-tr" viewBox="0 0 100 100" fill="none">
+        <path d="M8 8 C 25 15, 45 35, 50 65" stroke="#8c9d7d" stroke-width="1.8" stroke-linecap="round" opacity="0.7"/>
+        <path d="M12 18 Q 28 8, 38 20 Q 22 26, 12 18 Z" fill="#a1b392" opacity="0.65"/>
+        <path d="M22 30 Q 40 22, 48 36 Q 32 40, 22 30 Z" fill="#8c9d7d" opacity="0.75"/>
+        <path d="M32 45 Q 52 40, 56 56 Q 40 58, 32 45 Z" fill="#7a8d6b" opacity="0.7"/>
+      </svg>
+      <svg class="corner-decor corner-bl" viewBox="0 0 100 100" fill="none">
+        <path d="M8 8 C 25 15, 45 35, 50 65" stroke="#8c9d7d" stroke-width="1.8" stroke-linecap="round" opacity="0.7"/>
+        <path d="M12 18 Q 28 8, 38 20 Q 22 26, 12 18 Z" fill="#a1b392" opacity="0.65"/>
+        <path d="M22 30 Q 40 22, 48 36 Q 32 40, 22 30 Z" fill="#8c9d7d" opacity="0.75"/>
+      </svg>
+      <svg class="corner-decor corner-br" viewBox="0 0 100 100" fill="none">
+        <path d="M8 8 C 25 15, 45 35, 50 65" stroke="#8c9d7d" stroke-width="1.8" stroke-linecap="round" opacity="0.7"/>
+        <path d="M12 18 Q 28 8, 38 20 Q 22 26, 12 18 Z" fill="#a1b392" opacity="0.65"/>
+        <path d="M22 30 Q 40 22, 48 36 Q 32 40, 22 30 Z" fill="#8c9d7d" opacity="0.75"/>
+      </svg>
 
-      <div class="card">
-        <p class="month">Octubre</p>
-        <div class="date-row">
-          <span class="side">Viernes</span>
-          <span class="num">23</span>
-          <span class="side">2026</span>
+      <div class="sheet-content">
+
+        <!-- Encabezado con Cruz dorada y ramitas de olivo -->
+        <div class="cross-header">
+          <svg class="cross-icon" viewBox="0 0 80 80">
+            <!-- Hojas de olivo a los lados -->
+            <path d="M26 38 C 20 32, 14 36, 16 44 C 22 42, 26 38, 26 38 Z" fill="#8c9d7d" opacity="0.8"/>
+            <path d="M28 26 C 22 22, 18 28, 22 34 C 26 30, 28 26, 28 26 Z" fill="#9fb190" opacity="0.8"/>
+            <path d="M54 38 C 60 32, 66 36, 64 44 C 58 42, 54 38, 54 38 Z" fill="#8c9d7d" opacity="0.8"/>
+            <path d="M52 26 C 58 22, 62 28, 58 34 C 54 30, 52 26, 52 26 Z" fill="#9fb190" opacity="0.8"/>
+            <!-- Cruz dorada -->
+            <rect x="37.5" y="12" width="5" height="52" rx="2" fill="url(#goldGrad)"/>
+            <rect x="24" y="24" width="32" height="5" rx="2" fill="url(#goldGrad)"/>
+            <defs>
+              <linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#e4cd99"/>
+                <stop offset="50%" stop-color="#bfa05d"/>
+                <stop offset="100%" stop-color="#8c6c32"/>
+              </linearGradient>
+            </defs>
+          </svg>
+
+          <!-- Paloma blanca con ramita -->
+          <svg class="dove-icon" viewBox="0 0 60 60">
+            <path d="M42 22 C 38 18, 30 14, 22 18 C 16 21, 12 28, 14 36 C 18 36, 24 32, 28 30 C 26 36, 24 44, 18 48 C 26 48, 34 42, 38 34 C 44 32, 52 28, 54 24 C 50 22, 46 22, 42 22 Z" fill="#ffffff" stroke="#d8c2a0" stroke-width="1.2" filter="drop-shadow(0 2px 4px rgba(70,45,20,.12))"/>
+            <path d="M48 24 Q 54 20, 58 22 Q 54 25, 48 24 Z" fill="#8c9d7d"/>
+          </svg>
         </div>
-        <p class="time">5:00 de la tarde</p>
 
-        <div class="place">
-          <h3>Iglesia Padre Vílchez</h3>
-          <p>Av. Principal de San Francisco<br />Estado Zulia</p>
+        <p class="invite-lead">Con mucha alegría los invitamos al</p>
+        <h1 class="title-bautizo">Bautizo</h1>
+        
+        <p class="title-de-hijo">De nuestro hijo</p>
+        <h2 class="baby-name">Gael Alejandro</h2>
+        <p class="baby-surname">Pirela González</p>
+
+        <!-- Foto de Gael en elegante arco dorado -->
+        <div class="photo-arch">
+          <img src="img/gael3.jpg" alt="Gael Alejandro con su traje de bautizo" />
         </div>
 
-        <div class="btns">
-          <a class="btn primary" id="mapBtn" href="https://maps.app.goo.gl/eCBKCeQSzvPYTuc17?g_st=aw" target="_blank" rel="noopener">📍 Cómo llegar</a>
-          <a class="btn wa" id="rsvpTop" href="#" target="_blank" rel="noopener">💬 Confirmar Asistencia</a>
+        <!-- Cita bíblica -->
+        <p style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.25rem; line-height:1.45; color:var(--ink); max-width:440px; margin:0 auto;">
+          “Dejad que los niños vengan a mí, y no se lo impidáis, porque de los tales es el reino de los cielos.”
+          <span style="display:block; font-style:normal; font-family:'Jost'; font-size:.68rem; letter-spacing:.25em; text-transform:uppercase; color:var(--muted); margin-top:6px;">Mateo 19:14</span>
+        </p>
+
+        <div class="divider-heart">✦ ♥ ✦</div>
+
+        <!-- Fila con iconos de Fecha | Hora | Iglesia -->
+        <div class="details-row">
+          <div class="detail-col">
+            <svg class="detail-icon" viewBox="0 0 24 24">
+              <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/>
+            </svg>
+            <span class="detail-label">Fecha</span>
+            <span class="detail-val">Viernes 23</span>
+            <span class="detail-sub">Octubre 2026</span>
+          </div>
+
+          <div class="detail-col">
+            <svg class="detail-icon" viewBox="0 0 24 24">
+              <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+            </svg>
+            <span class="detail-label">Hora</span>
+            <span class="detail-val">5:00 P.M.</span>
+            <span class="detail-sub">Puntual</span>
+          </div>
+
+          <div class="detail-col">
+            <svg class="detail-icon" viewBox="0 0 24 24">
+              <path d="M12 2 L4 8 V21 H20 V8 Z M11 5 H13 V8 H11 Z M10 14 H14 V20 H10 Z" fill="none" stroke="var(--gold)" stroke-width="1.8" stroke-linejoin="round"/>
+              <path d="M12 2 V6 M10 4 H14" stroke="var(--gold)" stroke-width="1.6"/>
+            </svg>
+            <span class="detail-label">Ceremonia</span>
+            <span class="detail-val" style="font-size:1.02rem;">Parroquia Santísimo Cristo</span>
+            <span class="detail-sub">De San Francisco (Padre Vílchez)</span>
+          </div>
+        </div>
+
+        <!-- Recepción Trovas -->
+        <div class="reception-block">
+          <p class="reception-intro">
+            Luego de la ceremonia religiosa iremos a compartir juntos para celebrar este día tan especial y pasar un lindo momento en familia y amigos.
+          </p>
+          <p class="reception-title">Recepción: Trovas</p>
+        </div>
+
+        <div class="divider-heart">✦ ♥ ✦</div>
+
+        <!-- Padres y Padrinos -->
+        <div class="family-block">
+          <!-- Padres -->
+          <div class="family-col full-col">
+            <span class="family-role">♡ Padres</span>
+            <p class="family-names">Daily González y Leandro Pirela</p>
+          </div>
+
+          <!-- Madrinas -->
+          <div class="family-col">
+            <span class="family-role">🕊 Madrinas</span>
+            <p class="family-names">María Pirela<br />Valeska Gómez</p>
+          </div>
+
+          <!-- Padrinos -->
+          <div class="family-col">
+            <span class="family-role">🕊 Padrinos</span>
+            <p class="family-names">José Prieto<br />Juan Fereira</p>
+          </div>
         </div>
 
         <!-- Código de vestimenta -->
-        <div class="dress">
-          <p class="eyebrow" style="letter-spacing:.4em">Código de vestimenta</p>
-          <p class="serif" style="font-size:1.6rem; margin-top:8px; color:var(--cocoa)">Colores claros</p>
+        <div class="dress-box">
+          <p class="dress-title">Código de vestimenta</p>
+          <p class="dress-val">Colores claros</p>
           <div class="swatches" aria-hidden="true">
-            <i style="background:#fcf7ef" title="Blanco / Crema"></i>
-            <i style="background:#efe3d0" title="Beige arena"></i>
-            <i style="background:#e4d2b8" title="Beige tostado"></i>
-            <i style="background:#f4e6e2" title="Rosa suave"></i>
-            <i style="background:#e1e9e5" title="Salvia claro"></i>
+            <i style="background:#ffffff" title="Blanco"></i>
+            <i style="background:#fbf5ea" title="Crema / Marfil"></i>
+            <i style="background:#eedec7" title="Arena claro"></i>
+            <i style="background:#e2cdb0" title="Beige tostado"></i>
+            <i style="background:#e7efe3" title="Verde salvia suave"></i>
           </div>
         </div>
-      </div>
 
-      <!-- Cuenta regresiva -->
-      <div class="count" id="count" aria-live="polite">
-        <div><b id="d">00</b><span>Días</span></div>
-        <div><b id="h">00</b><span>Horas</span></div>
-        <div><b id="m">00</b><span>Min</span></div>
-        <div><b id="s">00</b><span>Seg</span></div>
-      </div>
-    </section>
-
-    <!-- SECCIÓN DE PADRINOS -->
-    <section class="reveal">
-      <p class="eyebrow">Guías de amor y fe</p>
-      <h2 class="script" style="font-size:3.2rem; margin-top:6px;">Mis Padrinos</h2>
-      <p class="serif" style="font-size:1.25rem; font-style:italic; color:var(--ink); margin-top:4px;">
-        Elegidos con el corazón para acompañarme en el camino de la vida y la fe.
-      </p>
-
-      <div class="godparents-card">
-        <div class="godparents-grid">
-          <div class="godparent-col">
-            <h4>Madrinas</h4>
-            <p class="godparent-name">María Pirela</p>
-            <p class="godparent-name">Valeska Gómez</p>
-          </div>
-          <div class="godparent-col">
-            <h4>Padrinos</h4>
-            <p class="godparent-name">José Prieto</p>
-            <p class="godparent-name">Juan Fereira</p>
-          </div>
+        <!-- Cuenta regresiva -->
+        <div class="countdown-row" id="countdownRow">
+          <div class="count-box"><span class="count-num" id="d">00</span><span class="count-lbl">Días</span></div>
+          <div class="count-box"><span class="count-num" id="h">00</span><span class="count-lbl">Horas</span></div>
+          <div class="count-box"><span class="count-num" id="m">00</span><span class="count-lbl">Min</span></div>
+          <div class="count-box"><span class="count-num" id="s">00</span><span class="count-lbl">Seg</span></div>
         </div>
-      </div>
-    </section>
 
-    <!-- Confirmación de Asistencia (WhatsApp) -->
-    <section class="reveal">
-      <p class="eyebrow">Confirma tu asistencia</p>
-      <div class="rsvp">
-        <p class="serif">Nos haría muy felices contar contigo.<br />Por favor cuéntanos si nos acompañarás.</p>
-        <div class="btns" style="margin-top:20px;">
-          <a class="btn wa-lg" id="rsvpYes" href="#" target="_blank" rel="noopener">💬 Sí, confirmo mi asistencia</a>
-          <a class="btn ghost" id="rsvpNo" href="#" target="_blank" rel="noopener">No podré asistir</a>
+        <!-- Botones de acción directos -->
+        <div class="actions-row">
+          <a class="btn primary" href="https://maps.app.goo.gl/eCBKCeQSzvPYTuc17?g_st=aw" target="_blank" rel="noopener">
+            📍 Cómo llegar a la Iglesia
+          </a>
+
+          <a class="btn wa" id="rsvpBtn" href="#" target="_blank" rel="noopener">
+            💬 Confirmar Asistencia por WhatsApp
+          </a>
+
+          <a class="btn ghost" id="rsvpNoBtn" href="#" target="_blank" rel="noopener">
+            No podré asistir
+          </a>
+
+          <p class="wa-subtext">Confirmación directa · +58 412-8423356</p>
         </div>
-        <small>Se abrirá WhatsApp · +58 412-8423356</small>
+
+        <!-- Pie de página -->
+        <div class="sheet-footer">
+          <p class="script">Te esperamos con mucho amor</p>
+          <p>Tu presencia es nuestro mejor regalo</p>
+          <p class="fam">Familia Pirela González</p>
+        </div>
+
       </div>
-    </section>
+    </article>
+  </div>
 
-    <!-- Pie de página -->
-    <footer class="reveal">
-      <div class="divider">✦</div>
-      <p class="script">Te esperamos</p>
-      <p>Tu presencia será nuestro mejor regalo.</p>
-      <p style="margin-top:22px; font-family:'Jost'; font-style:normal; letter-spacing:.3em; font-size:.72rem; text-transform:uppercase; color:var(--taupe);">Familia Pirela González</p>
-    </footer>
-  </main>
-
-  <!-- Botón flotante para pausar o reanudar música -->
-  <button id="music" aria-label="Activar o pausar música" title="Música">♪</button>
+  <!-- Botón flotante para pausar o reactivar música -->
+  <button id="music" aria-label="Activar o silenciar música" title="Música">♪</button>
 
   <script>
     /* ---------- Partículas doradas flotantes ---------- */
     const sp = document.getElementById('sparkles');
-    for (let i = 0; i < 22; i++) {
+    for (let i = 0; i < 24; i++) {
       const el = document.createElement('i');
       el.className = 'sparkle';
-      const size = 4 + Math.random() * 8;
-      el.style.cssText = `left:${Math.random()*100}%;width:${size}px;height:${size}px;animation-duration:${9+Math.random()*12}s;animation-delay:${-Math.random()*20}s`;
+      const size = 4 + Math.random() * 7;
+      el.style.cssText = 'left:' + (Math.random() * 100) + '%;width:' + size + 'px;height:' + size + 'px;animation-duration:' + (9 + Math.random() * 11) + 's;animation-delay:-' + (Math.random() * 20) + 's;';
       sp.appendChild(el);
     }
-
-    /* ---------- Revelado al hacer scroll ---------- */
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('in');
-          io.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.12 });
-    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
     /* ---------- Música de fondo (audio/musica.mp3) ---------- */
     const bgm = document.getElementById('bgm');
@@ -632,47 +808,41 @@
       }
     });
 
-    /* ---------- Apertura interactiva del Sobre & Carta ---------- */
+    /* ---------- Apertura DIRECTA de la carta al tocar el sobre ---------- */
     const cover = document.getElementById('cover');
-    const openBtn = document.getElementById('openBtn');
-    const enterBtn = document.getElementById('enterBtn');
-    const envelopeWrapper = document.getElementById('envelopeWrapper');
+    const stage = document.getElementById('envelopeStage');
     let isCoverOpened = false;
 
-    function handleOpenEnvelope() {
+    function openEnvelopeDirectly() {
       if (isCoverOpened) return;
       isCoverOpened = true;
 
-      // Inicia música con la interacción del usuario
+      // Inicia música con la interacción
       playMusic();
       musicBtn.classList.add('show');
 
-      // Animación de apertura
-      cover.classList.add('opened');
+      // Animación de solapa abriéndose
+      cover.classList.add('opening');
+
+      // Desvanece el sobre y revela directamente la invitación modelada completa
+      setTimeout(() => {
+        cover.classList.add('open');
+        document.body.classList.remove('locked');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 750);
     }
 
-    openBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      handleOpenEnvelope();
-    });
-    envelopeWrapper.addEventListener('click', handleOpenEnvelope);
+    stage.addEventListener('click', openEnvelopeDirectly);
 
-    enterBtn.addEventListener('click', () => {
-      cover.classList.add('open');
-      document.body.classList.remove('locked');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    /* ---------- Enlaces de WhatsApp prellenados ---------- */
+    /* ---------- Enlaces de WhatsApp prellenados (+58 412-8423356) ---------- */
     const WA_NUMBER = '584128423356';
-    const waUrl = (text) => `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
+    const waUrl = (text) => 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(text);
 
-    const yesMsg = '¡Hola! 👋 Confirmo con mucha alegría mi asistencia al bautizo de Gael Alejandro el viernes 23 de octubre a las 5:00 p.m. 🤍 Seremos ___ persona(s). Mi nombre es: ';
-    const noMsg = '¡Hola! Muchas gracias por la invitación al bautizo de Gael Alejandro 🤍 Lamentablemente no podré asistir, pero les envío muchas bendiciones y buenos deseos. Mi nombre es: ';
+    const yesMsg = '¡Hola! 👋 Confirmo con mucha alegría mi asistencia al bautizo de Gael Alejandro el viernes 23 de octubre a las 5:00 p.m. en la Parroquia Santísimo Cristo de San Francisco (Padre Vílchez) y luego la recepción en Trovas 🤍 Seremos ___ persona(s). Mi nombre es: ';
+    const noMsg = '¡Hola! Muchas gracias por la invitación al bautizo de Gael Alejandro 🤍 Lamentablemente no podré asistir, pero les envío muchas bendiciones y felicidades. Mi nombre es: ';
 
-    document.getElementById('rsvpTop').href = waUrl(yesMsg);
-    document.getElementById('rsvpYes').href = waUrl(yesMsg);
-    document.getElementById('rsvpNo').href = waUrl(noMsg);
+    document.getElementById('rsvpBtn').href = waUrl(yesMsg);
+    document.getElementById('rsvpNoBtn').href = waUrl(noMsg);
 
     /* ---------- Cuenta regresiva (23 oct 2026, 5:00 p.m. Venezuela UTC-4) ---------- */
     const targetDate = new Date('2026-10-23T17:00:00-04:00').getTime();
